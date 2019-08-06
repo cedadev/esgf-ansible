@@ -1,6 +1,6 @@
 [installer.properties]
 esgf.host={{ ansible_fqdn }}
-esgf.idp.peer={{ groups['idp'][0] }}
+esgf.idp.peer={{ idp_host }}
 esgf.index.peer={{ groups['index'][0] }}
 
 # Base db info
@@ -14,11 +14,11 @@ db.protocol=jdbc:postgresql:
 db.driver=org.postgresql.Driver
 
 # IDP info
-idp.service.endpoint=https://{{ groups['idp'][0] }}/esgf-idp/idp/openidServer.htm
-idp.security.attribute.service.endpoint=https://{{ groups['idp'][0] }}/esgf-idp/saml/soap/secure/attributeService.htm
-idp.security.registration.service.endpoint=https://{{ groups['idp'][0] }}/esgf-idp/secure/registrationService.htm
-short.lived.certificate.server={{ groups['idp'][0] }}
-myproxy.endpoint={{ groups['idp'][0] }}
+idp.service.endpoint=https://{{ idp_host }}/esgf-idp/idp/openidServer.htm
+idp.security.attribute.service.endpoint=https://{{ attr_service_host }}/esgf-idp/saml/soap/secure/attributeService.htm
+idp.security.registration.service.endpoint=https://{{ attr_service_host }}/esgf-idp/secure/registrationService.htm
+short.lived.certificate.server={{ idp_host }}
+myproxy.endpoint={{ idp_host }}
 myproxy.port=7512
 
 # Dashboard info
