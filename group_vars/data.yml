@@ -25,3 +25,5 @@ data_db:
     pub:
       name: esgcet
       pass: "{{ admin_pass }}"
+
+install_globus: true

@@ -121,7 +121,7 @@
     - dashboard-ip
 
 - name: start globus-gridftp-server
-  when: "'data' in group_names"
+  when: "'data' in group_names and install_globus"
   service:
     name: globus-gridftp-server
     state: started

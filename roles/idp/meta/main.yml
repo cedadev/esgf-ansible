@@ -1,8 +1,8 @@
 
 dependencies:
-  - { role: globus_tools, when: skip_deps is not defined or not skip_deps }
-  - { role: globus_certs, when: skip_deps is not defined or not skip_deps }
-  - { role: myproxy_tools, when: skip_deps is not defined or not skip_deps }
-  - { role: myproxy_certs, when: skip_deps is not defined or not skip_deps }
+  - { role: globus_tools, when: (skip_deps is not defined or not skip_deps) and install_globus }
+  - { role: globus_certs, when: (skip_deps is not defined or not skip_deps) and install_globus }
+  - { role: myproxy_tools, when: (skip_deps is not defined or not skip_deps) and install_globus }
+  - { role: myproxy_certs, when: (skip_deps is not defined or not skip_deps) and install_globus }
   - { role: tomcat_webapp, webapp: "{{ idp_webapp }}", when: skip_deps is not defined or not skip_deps }
   - { role: schema_migrate, egg: "{{ security.egg }}", when: skip_deps is not defined or not skip_deps }

@@ -22,3 +22,5 @@ myproxy:
     retriever: /esg/config/myproxy/retriever.py
     mapapp: /esg/config/myproxy/myproxy-certificate-mapapp
     extapp: /esg/config/myproxy/esg_attribute_callout_app
+
+install_globus: true

@@ -84,7 +84,7 @@
     - dashboard-ip
 
 - name: stop globus-gridftp-server
-  when: "'data' in group_names"
+  when: "'data' in group_names and install_globus"
   service:
     name: globus-gridftp-server
     state: stopped
