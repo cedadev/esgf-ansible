@@ -1,6 +1,6 @@
 
 - name: Bind mount all data directories specified in esg.ini
-  when: "'data' in group_names"
+  when: ("'data' in group_names" and install_globus)
   import_tasks: mount.yml
   tags:
     - data
