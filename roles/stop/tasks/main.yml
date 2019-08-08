@@ -93,7 +93,7 @@
     - gridftp
 
 - name: Unmount all bind mounts of data directories specified in esg.ini
-  when: ("'data' in group_names" and install_globus)
+  when: "'data' in group_names and install_globus"
   import_tasks: unmount.yml
   tags:
     - data
