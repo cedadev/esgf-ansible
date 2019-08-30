@@ -1,7 +1,7 @@
 [installer.properties]
-esgf.host={{ ansible_fqdn }}
-esgf.idp.peer={{ idp_host }}
-esgf.index.peer={{ groups['index'][0] }}
+esgf.host={{ hostname.self }}
+esgf.idp.peer={{ hostname.idp }}
+esgf.index.peer={{ hostname.index }}
 
 # Base db info
 db.database={{ all_db.db }}
@@ -14,17 +14,17 @@ db.protocol=jdbc:postgresql:
 db.driver=org.postgresql.Driver
 
 # IDP info
-idp.service.endpoint=https://{{ idp_host }}/esgf-idp/idp/openidServer.htm
+idp.service.endpoint=https://{{ hostname.idp }}/esgf-idp/idp/openidServer.htm
 idp.security.attribute.service.endpoint=https://{{ attr_service_host }}/esgf-idp/saml/soap/secure/attributeService.htm
 idp.security.registration.service.endpoint=https://{{ attr_service_host }}/esgf-idp/secure/registrationService.htm
-short.lived.certificate.server={{ idp_host }}
-myproxy.endpoint={{ idp_host }}
+short.lived.certificate.server={{ hostname.idp }}
+myproxy.endpoint={{ hostname.idp }}
 myproxy.port=7512
 
 # Dashboard info
 dashboard.ip.app.home={{ dashboard.ip.home }}
 esgf.registration.xml.path={{ esg.config.dir }}/dashboard
-esgf.registration.xml.download.url=http://{{ ansible_fqdn }}/esgf-nm/registration.xml
+esgf.registration.xml.download.url=http://{{ hostname.self }}/esgf-nm/registration.xml
 
 # GridFTP info
 gridftp.server.port={{ gridftp.port }}
