@@ -15,8 +15,8 @@ db.driver=org.postgresql.Driver
 
 # IDP info
 idp.service.endpoint=https://{{ hostname.idp }}/esgf-idp/idp/openidServer.htm
-idp.security.attribute.service.endpoint=https://{{ hostname.idp }}/esgf-idp/saml/soap/secure/attributeService.htm
-idp.security.registration.service.endpoint=https://{{ hostname.idp }}/esgf-idp/secure/registrationService.htm
+idp.security.attribute.service.endpoint=https://{{ attr_service_host }}/esgf-idp/saml/soap/secure/attributeService.htm
+idp.security.registration.service.endpoint=https://{{ attr_service_host }}/esgf-idp/secure/registrationService.htm
 short.lived.certificate.server={{ hostname.idp }}
 myproxy.endpoint={{ hostname.idp }}
 myproxy.port=7512
