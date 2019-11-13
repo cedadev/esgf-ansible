@@ -3,5 +3,6 @@
 *.log
 docs/build
 host_vars/*
+inventories/test_*
 !host_vars/myhost.my.org.yml
 !host_vars/sample*

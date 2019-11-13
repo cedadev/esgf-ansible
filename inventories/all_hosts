@@ -1,0 +1,12 @@
+[data]
+data1.example.com
+data2.example.com
+data3.example.com
+
+[index]
+index1.example.com
+index2.example.com
+index3.example.com
+
+[idp]
+idp.example.com
