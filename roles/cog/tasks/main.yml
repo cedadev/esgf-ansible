@@ -41,7 +41,7 @@
 - name: Install CoG into conda env
   shell: >
     {{ conda.actv }} cog && \
-    python setup.py --quiet install
+    python setup.py --quiet develop
   args:
     chdir: "{{ cog.dest }}"
 
@@ -59,16 +59,7 @@
   args:
     chdir: "{{ cog.dest }}"
 
-- name: Setup CoG mod_wsgi-express server
-  shell: >
-    {{ conda.actv }} cog && \
-    mod_wsgi-express setup-server apache/wsgi.py \
-    --server-root {{ cog.wsgi_dir }} \
-    --user apache --group apache \
-    --host localhost --port 8889 \
-    --url-alias /static {{ cog.dest }}/static/
-  args:
-    chdir: "{{ cog.dest }}"
+- include: waitress.yml
 
 # - name : Install the cog proxy config
 #   template:

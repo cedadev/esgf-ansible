@@ -1,0 +1,22 @@
+---
+
+- name: Install supervisord
+  include_role: name=jasmin_roles/supervisord
+
+- name: Install Waitress into conda env
+  shell: >
+    {{ conda.actv }} cog && \
+    pip install waitress
+  args:
+    chdir: "{{ cog.dest }}"
+
+- name: Copy wsgi to python path location
+  copy:
+    remote_src: yes
+    src: "{{ cog.dest }}/apache/wsgi.py"
+    dest: "{{ cog.dest }}/wsgi.py"
+
+- name: Install supervisord config for COG
+  template:
+    src: supervisord.conf
+    dest: /etc/supervisord.d/cog.conf

@@ -52,11 +52,17 @@
     - tomcat
 
 # Index services
-- name: start cog
+
+- name: Start supervisord
   when: "'index' in group_names"
-  command: "{{ cog.wsgi_dir }}/apachectl start"
-  register: result
-  changed_when: '"already running" not in result.stdout'
+  service: name=supervisord state=started
+  tags:
+    - index
+    - cog
+
+- name: Start COG
+  when: "'index' in group_names"
+  command: "supervisorctl start cog:"
   tags:
     - index
     - cog
@@ -94,20 +100,24 @@
     - solr
 
 # IDP Services
-- name: start myproxy-server
+#- name: start myproxy-server
+#  when: "'idp' in group_names"
+#  service:
+#    name: myproxy-server
+#    state: started
+#  tags:
+#    - idp
+#    - myproxy
+
+- name: Start supervisord
   when: "'idp' in group_names"
-  service:
-    name: myproxy-server
-    state: started
+  service: name=supervisord state=started
   tags:
     - idp
-    - myproxy
 
-- name: start slcs
+- name: Start slcs
   when: "'idp' in group_names"
-  command: "{{ slcs.wsgi_dir }}/apachectl start"
-  register: result
-  changed_when: '"already running" not in result.stdout'
+  command: "supervisorctl start slcs:"
   tags:
     - idp
     - slcs
@@ -120,11 +130,11 @@
     - data
     - dashboard-ip
 
-- name: start globus-gridftp-server
-  when: "'data' in group_names"
-  service:
-    name: globus-gridftp-server
-    state: started
-  tags:
-    - data
-    - gridftp
+#- name: start globus-gridftp-server
+#  when: "'data' in group_names"
+#  service:
+#    name: globus-gridftp-server
+#    state: started
+#  tags:
+#    - data
+#    - gridftp

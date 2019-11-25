@@ -1,0 +1,16 @@
+---
+
+- name: Install supervisord
+  include_role: name=jasmin_roles/supervisord
+
+- name: Install Waitress into conda env
+  shell: >
+    {{ conda.actv }} slcs && \
+    pip install waitress
+  args:
+    chdir: "{{ slcs.dest }}"
+
+- name: Install supervisord config for slcs
+  template:
+    src: supervisord.conf
+    dest: /etc/supervisord.d/slcs.conf

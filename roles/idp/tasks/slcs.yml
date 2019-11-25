@@ -12,6 +12,10 @@
   group:
     name: slcs
 
+- name: Create myproxy group
+  group:
+    name: myproxy
+
 - name: Create slcs user
   user:
     name: slcs
@@ -113,17 +117,7 @@
   args:
     chdir: "{{ slcs.dest }}"
 
-- name: Setup SLCS mod_wsgi-express server
-  shell: >
-    {{ conda.actv }} slcs && \
-    mod_wsgi-express setup-server esgf_slcs_server/wsgi.py \
-    --server-root {{ slcs.wsgi_dir }} \
-    --user slcs --group slcs \
-    --host localhost --port 8888 \
-    --mount-point /esgf-slcs \
-    --url-alias /esgf-slcs/static {{ slcs.static }}
-  args:
-    chdir: "{{ slcs.dest }}"
+- include: waitress.yml
 
 - name: Set slcs user ownership
   file:
