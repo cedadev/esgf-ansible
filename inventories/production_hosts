@@ -1,12 +1,13 @@
 [data]
 data1.example.com
-data2.example.com
-data3.example.com
 
 [index]
 index1.example.com
 index2.example.com
-index3.example.com
 
 [idp]
 idp.example.com
+
+[all:vars]
+ansible_ssh_user=root
+ansible_ssh_private_key_file=~/.ssh/id_rsa
