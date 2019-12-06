@@ -1,0 +1,20 @@
+---
+
+# Admin password
+admin_pass: myAdminPass
+
+# Generate self-signed certificate for httpd
+generate_httpd: true
+
+permit_ip_range: all
+
+# Hostname Info
+hostname:
+  self: "{{ esgf_host }}"
+  idp: "esgf-auth.ceda.ac.uk"
+  index: "esgf-index1.ceda.ac.uk"
+
+# Databases
+auth_database: "{{ all_db }}"
+cog_database: "{{ all_db }}"
+cet_database: "{{ all_db }}"
