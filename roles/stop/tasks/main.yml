@@ -40,14 +40,16 @@
     - index
     - tomcat
 
-# Index services
-- name: stop cog
-  when: "'index' in group_names"
-  command: "{{ cog.wsgi_dir }}/apachectl stop"
+- name: Stop supervisord
+  when: "'index' in group_names or 'idp' in group_names"
+  service: name=supervisord state=stopped
   tags:
     - index
     - cog
+    - idp
+    - myproxy
 
+# Index services
 - name: stop solr
   when: "'index' in group_names"
   become: yes
@@ -67,13 +69,6 @@
   tags:
     - idp
     - myproxy
-
-- name: stop slcs
-  when: "'idp' in group_names"
-  command: "{{ slcs.wsgi_dir }}/apachectl stop"
-  tags:
-    - idp
-    - slcs
 
 # Data services
 - name: stop dashboard information provider

@@ -54,18 +54,13 @@
 # Index services
 
 - name: Start supervisord
-  when: "'index' in group_names"
+  when: "'index' in group_names or 'idp' in group_names"
   service: name=supervisord state=started
   tags:
     - index
     - cog
-
-- name: Start COG
-  when: "'index' in group_names"
-  command: "supervisorctl start cog:"
-  tags:
-    - index
-    - cog
+    - idp
+    - myproxy
 
 - name: Load solr startup file
   when: "'index' in group_names"
@@ -108,19 +103,6 @@
 #  tags:
 #    - idp
 #    - myproxy
-
-- name: Start supervisord
-  when: "'idp' in group_names"
-  service: name=supervisord state=started
-  tags:
-    - idp
-
-- name: Start slcs
-  when: "'idp' in group_names"
-  command: "supervisorctl start slcs:"
-  tags:
-    - idp
-    - slcs
 
 # Data services
 - name: start dashboard information provider
