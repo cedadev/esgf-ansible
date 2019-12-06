@@ -32,6 +32,8 @@
       block:
         - include_role:
             name: idp
+        - include_role:
+            name: orp
       tags: idp
       when: "'idp' in group_names"
 
