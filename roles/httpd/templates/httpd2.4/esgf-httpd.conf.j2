@@ -160,17 +160,19 @@ NameVirtualHost *:80
 </Location>
 <Location /admin>
 	Require all denied
-	#insert-permitted-ips-here
+	Require ip {{ permit_ip_range }}
 </Location>
 <Location /solr/admin>
 	Require all denied
-	#insert-permitted-ips-here
+	Require ip {{ permit_ip_range }}
 </Location>
 <Location /solr/*/update>
     Require all denied
+	Require ip {{ permit_ip_range }}
 </Location>
 <Location /solr/*/debug>
     Require all denied
+	Require ip {{ permit_ip_range }}
 </Location>
 
 <VirtualHost *:80>
