@@ -59,12 +59,22 @@
   args:
     chdir: "{{ cog.dest }}"
 
-- include: waitress.yml
+- name: Copy wsgi to python path location
+  copy:
+    remote_src: yes
+    src: "{{ cog.dest }}/apache/wsgi.py"
+    dest: "{{ cog.dest }}/wsgi.py"
 
-# - name : Install the cog proxy config
-#   template:
-#     src: "httpd{{ httpd_version }}/cog.httpd.conf.j2"
-#     dest: "{{ httpd.ssl_proxy_dir }}/9cog.conf"
+- name: Install application with waitress
+  include_role:
+    name: waitress
+  vars:
+    application_name: cog
+    application_user: apache
+    application_port: 8889
+    application_wsgi_app:
+      - wsgi
+      - application
 
 - name: Set Ownership
   file:

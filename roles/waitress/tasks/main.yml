@@ -1,0 +1,13 @@
+---
+
+- name: Install supervisord
+  include_role:
+    name: jasmin_roles/supervisord
+
+- name: Install Waitress into conda env
+  shell: "{{ conda.actv }} {{ application_name }} && pip install waitress"
+
+- name: Install supervisord config
+  template:
+    src: supervisord.conf
+    dest: /etc/supervisord.d/{{ application_name }}.conf

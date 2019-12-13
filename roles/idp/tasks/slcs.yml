@@ -119,6 +119,17 @@
 
 - include: waitress.yml
 
+- name: Install application with waitress
+  include_role:
+    name: waitress
+  vars:
+    application_name: slcs
+    application_user: slcs
+    application_port: 8888
+    application_wsgi_app:
+      - esgf_slcs_server.wsgi
+      - application
+
 - name: Set slcs user ownership
   file:
     path: "{{ slcs.home }}"

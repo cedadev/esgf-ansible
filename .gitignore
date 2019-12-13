@@ -1,3 +1,5 @@
+host_vars/ceda*/*
+
 *.test
 *.retry
 *.log
