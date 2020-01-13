@@ -1,0 +1,6 @@
+---
+
+cog_email_server: ""
+cog_email_sender: cog@example.com
+cog_time_zone: Europe/London
+cog_home_project: TestProject

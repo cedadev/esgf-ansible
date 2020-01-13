@@ -112,17 +112,17 @@ WSGI_APPLICATION = 'esgf_slcs_server.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE' : 'django.db.backends.postgresql',
-        'NAME' : 'slcsdb',
-        'HOST' : '{{ all_db.host }}',
-        'PORT' : '{{ all_db.port }}',
-        'USER' : '{{ all_db.users.super.name }}',
+        'NAME' : '{{ slcs_database.name }}',
+        'HOST' : '{{ slcs_database.host }}',
+        'PORT' : '{{ slcs_database.port }}',
+        'USER' : '{{ slcs_database.user }}',
     },
     'userdb' : {
         'ENGINE' : 'django.db.backends.postgresql',
-        'NAME' : '{{ all_db.db }}',
-        'HOST' : '{{ all_db.host }}',
-        'PORT' : '{{ all_db.port }}',
-        'USER' : '{{ all_db.users.super.name }}',
+        'NAME' : '{{ user_database.name }}',
+        'HOST' : '{{ user_database.host }}',
+        'PORT' : '{{ user_database.port }}',
+        'USER' : '{{ user_database.user }}',
     },
 }
 

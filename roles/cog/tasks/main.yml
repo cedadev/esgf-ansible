@@ -45,6 +45,11 @@
   args:
     chdir: "{{ cog.dest }}"
 
+- name: Install cog config
+  template:
+    src: cog_settings.cfg
+    dest: /usr/local/cog/cog_config/cog_settings.cfg
+
 - name: Setup CoG
   shell: >
     {{ conda.actv }} cog && \

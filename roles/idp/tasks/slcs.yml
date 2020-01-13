@@ -74,14 +74,14 @@
 
 - name: Install slcsdb password file
   copy:
-    content: "{{ all_db.users.super.pass }}"
+    content: "{{ slcs_database.password }}"
     dest: "{{ slcs.home }}/conf/app/slcsdb_passwd.txt"
     mode: 0600
   no_log: true
 
 - name: Install userdb password file
   copy:
-    content: "{{ all_db.users.super.pass }}"
+    content: "{{ user_database.password }}"
     dest: "{{ slcs.home }}/conf/app/userdb_passwd.txt"
     mode: 0600
   no_log: true
@@ -116,8 +116,6 @@
     python manage.py collectstatic --noinput --clear
   args:
     chdir: "{{ slcs.dest }}"
-
-- include: waitress.yml
 
 - name: Install application with waitress
   include_role:
