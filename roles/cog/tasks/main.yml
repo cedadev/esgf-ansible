@@ -45,10 +45,10 @@
   args:
     chdir: "{{ cog.dest }}"
 
-- name: Install cog config
-  template:
-    src: cog_settings.cfg
-    dest: /usr/local/cog/cog_config/cog_settings.cfg
+- name: Remove CoG config
+  file:
+    path: /usr/local/cog/cog_config/cog_settings.cfg
+    state: absent
 
 - name: Setup CoG
   shell: >
@@ -56,6 +56,11 @@
     python setup.py setup_cog --esgf=true
   args:
     chdir: "{{ cog.dest }}"
+
+- name: Install cog config
+  template:
+    src: cog_settings.cfg
+    dest: /usr/local/cog/cog_config/cog_settings.cfg
 
 - name: CoG collectstatic
   shell: >
