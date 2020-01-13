@@ -1,0 +1,7 @@
+---
+
+- name: Install restart script
+  template:
+    src: restart_all.sh
+    dest: /root/restart_all.sh
+    mode: 0755

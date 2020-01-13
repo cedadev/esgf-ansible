@@ -28,6 +28,14 @@
         - always
         - base
 
+    - name: Utility scripts
+      block:
+        - include_role:
+            name: utility_scripts
+      tags:
+        - always
+        - base
+
     - name: IDP
       block:
         - include_role:
