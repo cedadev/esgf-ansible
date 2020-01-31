@@ -1,7 +1,27 @@
 ---
 
-- name: Install restart script
+- name: Set scripts for Index nodes
+  set_fact:
+    utility_scripts:
+      - restart_all.sh
+      - create_cores.sh
+  when: "'index' in group_names"
+
+- name: Set scripts for Data nodes
+  set_fact:
+    utility_scripts:
+      - restart_all.sh
+  when: "'data' in group_names"
+
+- name: Set scripts for IDP nodes
+  set_fact:
+    utility_scripts:
+      - restart_all.sh
+  when: "'idp' in group_names"
+
+- name: Install scripts
   template:
-    src: restart_all.sh
-    dest: /root/restart_all.sh
+    src: "{{ item }}"
+    dest: "/root/{{ item }}"
     mode: 0755
+  with_items: "{{ utility_scripts }}"
