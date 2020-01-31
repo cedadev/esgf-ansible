@@ -6,7 +6,7 @@ host_vars/ceda*/*
 docs/build
 host_vars/*
 vars/fake_hosts.yml
-inventories/test_*
+inventories/*
 !host_vars/myhost.my.org.yml
 !host_vars/sample*
 !host_vars/ceda*

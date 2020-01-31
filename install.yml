@@ -49,6 +49,9 @@
       block:
         - include_role:
             name: index
+
+        - include_role:
+            name: rsync
       tags: index
       when: "'index' in group_names"
 
@@ -56,6 +59,9 @@
       block:
         - include_role:
             name: data
+
+        - include_role:
+            name: rsync
       tags: data
       when: "'data' in group_names"
 

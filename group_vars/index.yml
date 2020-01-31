@@ -26,3 +26,5 @@ cog:
 node_status:
   repo: https://github.com/ESGF/esgf-utils
   dest: /usr/local/esgf-utils
+
+rsync_config_template: index.rsync.conf

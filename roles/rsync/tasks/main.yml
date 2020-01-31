@@ -1,0 +1,33 @@
+---
+
+- name: Install rsync service yum package requirements
+  yum:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - rsync
+    - xinetd
+
+- name: Populate rsync config
+  template:
+    src: "{{ rsync_config_template }}"
+    dest: /etc/rsyncd.conf
+    mode: "u=rw,g=r,o=r"
+
+- name: Create the rsync secrets file
+  file:
+    path: /etc/rsyncd.secrets
+    state: touch
+    mode: "u=rw,g=,o="
+  when: rsync_auth_user is defined
+
+- name: Add rsync to xinetd config
+  template:
+    src: rsync
+    dest: /etc/xinetd.d/rsync
+    mode: "u=rw,g=r,o=r"
+
+- name: restart xinetd
+  service:
+    name: xinetd
+    state: restarted

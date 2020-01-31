@@ -25,3 +25,5 @@ data_db:
     pub:
       name: esgcet
       pass: "{{ admin_pass }}"
+
+rsync_config_template: data.rsync.conf

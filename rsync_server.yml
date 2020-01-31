@@ -1,12 +1,10 @@
 
 # All ESGF Node Componenets
 
-- hosts: all
+- hosts: data, index
   # strategy: free
   become: yes
   connection: paramiko
   any_errors_fatal: true
-  vars_files:
-    - vars/fake_hosts.yml
   roles:
-    - fake_hosts
+    - rsync

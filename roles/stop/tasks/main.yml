@@ -39,6 +39,8 @@
     - idp
     - index
     - tomcat
+  become: yes
+  become_user: tomcat
 
 - name: Stop supervisord
   when: "'index' in group_names or 'idp' in group_names"
