@@ -1,7 +1,0 @@
----
-
-fake_hosts:
-  <index1_host>: esgf-index1.ceda.ac.uk esgf-index1
-  <index2_host>: esgf-index2.ceda.ac.uk esgf-index2
-  <data1_host>: esgf-data1.ceda.ac.uk esgf-data1
-  <auth_host>: esgf-auth.ceda.ac.uk esgf-auth
