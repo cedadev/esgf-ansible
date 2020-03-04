@@ -1,12 +1,7 @@
-host_vars/ceda*/*
-
 *.test
 *.retry
 *.log
 docs/build
 host_vars/*
-vars/fake_hosts.yml
-inventories/*
 !host_vars/myhost.my.org.yml
 !host_vars/sample*
-!host_vars/ceda*

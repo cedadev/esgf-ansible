@@ -28,20 +28,10 @@
         - always
         - base
 
-    - name: Utility scripts
-      block:
-        - include_role:
-            name: utility_scripts
-      tags:
-        - always
-        - base
-
     - name: IDP
       block:
         - include_role:
             name: idp
-        - include_role:
-            name: orp
       tags: idp
       when: "'idp' in group_names"
 
@@ -49,9 +39,6 @@
       block:
         - include_role:
             name: index
-
-        - include_role:
-            name: rsync
       tags: index
       when: "'index' in group_names"
 
@@ -59,9 +46,6 @@
       block:
         - include_role:
             name: data
-
-        - include_role:
-            name: rsync
       tags: data
       when: "'data' in group_names"
 
