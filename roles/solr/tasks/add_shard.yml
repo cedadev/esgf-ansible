@@ -80,6 +80,16 @@
     - files
     - aggregations
 
+- name: Insert data directory line in core.properties
+  lineinfile:
+    path: "{{ solr.home }}/{{ shard.name }}-{{ shard.port }}/{{ item }}/core.properties"
+    line: "dataDir=/esg/solr-index/{{ shard.name }}-{{ shard.port }}/{{ item }}"
+    insertafter: "name="
+  with_items:
+    - datasets
+    - files
+    - aggregations
+
 - name: Stop this Solr instance
   become: yes
   become_user: solr
