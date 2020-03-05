@@ -47,8 +47,6 @@
     - idp
     - index
     - tomcat
-  become: yes
-  become_user: tomcat
 
 # Index services
 
