@@ -41,10 +41,7 @@
 
 # Almost always start tomcat
 - name: start tomcat
-  command: "nohup {{ tomcat_ctrl }} start"
-  register: result
-  changed_when: '"Tomcat appears to still be running" not in result.stdout'
-  failed_when: 'result.rc != 0 and "Tomcat appears to still be running" not in result.stdout'
+  service: name=tomcat@esgf state=started
   tags:
     - data
     - idp
