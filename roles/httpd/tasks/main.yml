@@ -7,6 +7,11 @@
       - mod_security
       - mod_security_crs
 
+- name: Enable httpd
+  service:
+    name: httpd
+    enabled: yes
+
 - name: Install mod_security.conf
   template:
     src: mod_security.conf
