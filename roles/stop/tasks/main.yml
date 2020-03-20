@@ -10,7 +10,7 @@
 
 - name: stop postgres
   service:
-    name: postgresql
+    name: postgresql-9.6
     state: stopped
   tags:
     - postgres

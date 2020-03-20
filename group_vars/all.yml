@@ -50,8 +50,8 @@ esg:
 
 pkgs:
   apache: httpd
-  postgres_server: postgresql-server
-  postgres_devel: postgresql-devel
+  postgres_server: postgresql96-server
+  postgres_devel: postgresql96-devel
   psgycopg2: python-psycopg2
 
 conda:

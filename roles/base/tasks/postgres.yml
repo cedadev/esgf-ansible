@@ -1,6 +1,11 @@
 
 # Install the postgres server and devel files
 
+- name: Install tier 1 repo
+  yum:
+    name: pgdg-tier1-repo
+    state: latest
+
 - name: Ensure postgres is installed
   package:
     name:
@@ -9,7 +14,7 @@
       - "{{ pkgs.psgycopg2 }}"
 
 - name: Initialize postgres
-  command: service postgresql initdb
+  command: service postgresql-9.6 initdb
   args:
     creates: /var/lib/pgsql/data/*
     warn: no
@@ -21,7 +26,7 @@
 
 - name: Start postgres
   service:
-    name: postgresql
+    name: postgresql-9.6
     state: started
     enabled: yes
 
