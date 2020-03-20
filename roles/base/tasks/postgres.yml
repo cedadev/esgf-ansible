@@ -13,11 +13,11 @@
       - "{{ pkgs.postgres_server }}"
       - "{{ pkgs.psgycopg2 }}"
 
-- name: Initialize postgres
-  command: service postgresql-9.6 initdb
-  args:
-    creates: /var/lib/pgsql/data/*
-    warn: no
+- name: Initialise PostgreSQL on CentOS/RHEL 7
+  command: /usr/pgsql-9.6/bin/postgresql96-setup initdb
+  register: postgres_initdb
+  failed_when: "postgres_initdb.rc != 0 and 'Data directory is not empty!' not in postgres_initdb.stdout"
+  changed_when: postgres_initdb.rc == 0
 
 - name: Install pg_hba.conf file
   copy:
