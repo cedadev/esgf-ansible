@@ -22,7 +22,7 @@
 - name: Install pg_hba.conf file
   copy:
     src: postgres/pg_hba.conf
-    dest: /var/lib/pgsql/data/pg_hba.conf
+    dest: /var/lib/pgsql/9.6/data/pg_hba.conf
 
 - name: Start postgres
   service:
