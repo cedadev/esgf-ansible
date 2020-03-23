@@ -1,6 +1,12 @@
 
 # Install the postgres server and devel files
 
+- name: Ensure psycopg2 is installed and pg_config is available
+  package:
+    name:
+      - "{{ pkgs.psgycopg2 }}"
+      - postgresql-devel
+
 - name: Install tier 1 repo
   yum:
     name: pgdg-tier1-repo
@@ -11,7 +17,6 @@
     name:
       - "{{ pkgs.postgres_devel }}"
       - "{{ pkgs.postgres_server }}"
-      - "{{ pkgs.psgycopg2 }}"
 
 - name: Initialise PostgreSQL on CentOS/RHEL 7
   command: /usr/pgsql-9.6/bin/postgresql96-setup initdb
