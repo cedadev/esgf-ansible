@@ -16,6 +16,7 @@
     remote_src: yes
     src: /tmp/esgf-config/esgf-prod/{{ item }}.xml
     dest: "{{ esg.config.dir }}/{{ item }}.xml"
+    mode: "u=rw,g=r,o=r"
     force: no
   loop:
     - esgf_ats_static
