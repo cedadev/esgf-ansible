@@ -1,12 +1,8 @@
 
-- name: tomcat Group
-  group:
-    name: tomcat
-
-- name: tomcat User
+- name: Ensure tomcat user exists
   user:
     name: tomcat
-    groups: tomcat
+    state: present
 
 - name: Tomcat Download
   unarchive:
