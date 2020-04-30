@@ -29,7 +29,7 @@
     - las_servers_static
 
 - name: Write password files
-  no_log: true
+  #no_log: true
   copy:
     content: "{{ admin_pass }}"
     dest: "{{ esg.config.dir }}/{{ item }}"

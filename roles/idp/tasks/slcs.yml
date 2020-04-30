@@ -65,7 +65,7 @@
   shell: set +o pipefail && tr -dc '[:alnum:][:punct:]' < /dev/urandom | head -c 100 > {{ slcs.home }}/conf/app/secret_key.txt
   args:
     creates: "{{ slcs.home }}/conf/app/secret_key.txt"
-  no_log: true
+  #no_log: true
 
 - name: Set file permissions on secret file
   file:
@@ -77,14 +77,14 @@
     content: "{{ slcs_database.password }}"
     dest: "{{ slcs.home }}/conf/app/slcsdb_passwd.txt"
     mode: 0600
-  no_log: true
+  #no_log: true
 
 - name: Install userdb password file
   copy:
     content: "{{ user_database.password }}"
     dest: "{{ slcs.home }}/conf/app/userdb_passwd.txt"
     mode: 0600
-  no_log: true
+  #no_log: true
 
 - name: Create slcsdb database
   become: yes

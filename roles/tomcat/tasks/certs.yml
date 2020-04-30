@@ -18,13 +18,13 @@
 
 # Load the hostkey and hostcert into the tomcat keystore
 - name: Load host key
-  no_log: true
+  #no_log: true
   slurp:
     src: "{{ httpd.hostkey }}"
   register: keycontents
 
 - name: Load host cert
-  no_log: true
+  #no_log: true
   slurp:
     src: "{{ httpd.hostcert }}"
   register: certcontents

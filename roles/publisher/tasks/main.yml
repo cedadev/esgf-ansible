@@ -44,7 +44,7 @@
     UVCDAT_ANONYMOUS_LOG: no
 
 - name: Insert publisher password into esg.ini
-  no_log: true
+  #no_log: true
   replace:
     path: "{{ esg.config.dir }}/esgcet/esg.ini"
     regexp: 'esgcetpass'
@@ -57,7 +57,7 @@
     replace: '{{ hostname.self }}'
 
 - name: Run esgsetup for the database
-  no_log: true
+  #no_log: true
   shell: >
     {{ conda.actv }} esgf-pub && \
     esgsetup --db --minimal-setup \
@@ -85,7 +85,7 @@
 
 # Configure publisher with thredds
 - name: Run esgsetup for thredds
-  no_log: true
+  #no_log: true
   shell: >
     {{ conda.actv }} esgf-pub && \
     esgsetup --config --minimal-setup \
