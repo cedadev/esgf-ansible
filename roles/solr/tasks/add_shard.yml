@@ -33,7 +33,6 @@
   copy:
     content: "{{ shards_list | to_yaml }}"
     dest: "{{ esg.config.dir }}/shards_startup.yml"
-    force: no
 
 # Create the current 'shard'
 - name: Create shard solr.solr.home directory
