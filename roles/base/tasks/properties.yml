@@ -7,4 +7,3 @@
   template:
     src: base.properties.j2
     dest: "{{ esg.config.dir }}/esgf.properties"
-    force: no
