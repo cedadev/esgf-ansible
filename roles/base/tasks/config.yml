@@ -38,6 +38,16 @@
   loop:
     - ".esgf_pass"
     - ".esg_keystore_pass"
+
+- name: Write postgres password files
+  #no_log: true
+  copy:
+    content: "{{ all_db.users.super.pass }}"
+    dest: "{{ esg.config.dir }}/{{ item }}"
+    mode: 0640
+    owner: root
+    group: tomcat
+  loop:
     - ".esg_pg_pass"
     - ".esg_pg_publisher_pass"
 
