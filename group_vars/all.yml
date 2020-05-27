@@ -35,6 +35,7 @@ assets:
   security: https://github.com/ESGF/esgf-security/releases/download/{{ versions.security }}
   idp: https://github.com/ESGF/esgf-idp/releases/download/{{ versions.idp }}
 
+
 mirror_host: aims1.llnl.gov
 mirror:
   base: https://{{ mirror_host }}/esgf/dist
@@ -177,3 +178,5 @@ dashboard:
 gridftp:
   port: 2811
   chroot: "{{ esg.home }}/gridftp_root"
+
+authz_url: https://{{ hostname.idp }}/esg-orp/saml/soap/secure/authorizationService.htm
