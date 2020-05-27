@@ -105,7 +105,7 @@
 
 # Data services
 - name: start dashboard information provider
-  when: "'data' in group_names"
+  when: ("'data' in group_names") and use_esgf_dashboard_tasks|default(true)
   shell: "nohup {{ dashboard.ip.ctrl_script }} start &>> {{ dashboard.ip.log }}"
   tags:
     - data

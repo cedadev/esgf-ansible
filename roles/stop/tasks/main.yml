@@ -74,7 +74,7 @@
 
 # Data services
 - name: stop dashboard information provider
-  when: "'data' in group_names"
+  when: "'data' in group_names" and use_esgf_dashboard_tasks|default(true)
   shell: "{{ dashboard.ip.ctrl_script }} stop &>> {{ dashboard.ip.log }}"
   tags:
     - data

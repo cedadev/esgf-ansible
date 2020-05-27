@@ -1,6 +1,7 @@
 
 - name: Import dashboard tasks
   import_tasks: dashboard.yml
+  when: use_esgf_dashboard_tasks|default(true)
 
 - name: Import postgres tasks
   import_tasks: postgres.yml
