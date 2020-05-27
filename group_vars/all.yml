@@ -25,15 +25,25 @@ versions:
   security_db: 0.1.7
   idp: v2.8.8
 
+#assets:
+#  base: https://github.com/ESGF/esgf-ansible/releases/download/{{ versions.installer }}
+#  search: https://github.com/ESGF/esg-search/releases/download/{{ versions.search }}
+#  stats_api: https://github.com/ESGF/esgf-stats-api/releases/download/{{ versions.stats_api }}
+#  dashboard: https://github.com/ESGF/esgf-dashboard/releases/download/{{ versions.dashboard }}
+#  node_manager: https://github.com/ESGF/esgf-node-manager/releases/download/{{ versions.node_manager }}
+#  orp: https://github.com/ESGF/esg-orp/releases/download/{{ versions.orp }}
+#  security: https://github.com/ESGF/esgf-security/releases/download/{{ versions.security }}
+#  idp: https://github.com/ESGF/esgf-idp/releases/download/{{ versions.idp }}
+
 assets:
-  base: https://github.com/ESGF/esgf-ansible/releases/download/{{ versions.installer }}
-  search: https://github.com/ESGF/esg-search/releases/download/{{ versions.search }}
-  stats_api: https://github.com/ESGF/esgf-stats-api/releases/download/{{ versions.stats_api }}
-  dashboard: https://github.com/ESGF/esgf-dashboard/releases/download/{{ versions.dashboard }}
-  node_manager: https://github.com/ESGF/esgf-node-manager/releases/download/{{ versions.node_manager }}
-  orp: https://github.com/ESGF/esg-orp/releases/download/{{ versions.orp }}
-  security: https://github.com/ESGF/esgf-security/releases/download/{{ versions.security }}
-  idp: https://github.com/ESGF/esgf-idp/releases/download/{{ versions.idp }}
+  base: http://dist.ceda.ac.uk/esgf_local/assets/esgf-ansible/{{ versions.installer }}
+  search: http://dist.ceda.ac.uk/esgf_local/assets/esg-search/{{ versions.search }}
+  stats_api: http://dist.ceda.ac.uk/esgf_local/assets/esgf-stats-api/{{ versions.stats_api }}
+  dashboard: http://dist.ceda.ac.uk/esgf_local/assets/esgf-dashboard/{{ versions.dashboard }}
+  node_manager: http://dist.ceda.ac.uk/esgf_local/assets/esgf-node-manager/{{ versions.node_manager }}
+  orp: http://dist.ceda.ac.uk/esgf_local/assets/esg-orp/{{ versions.orp }}
+  security: http://dist.ceda.ac.uk/esgf_local/assets/esgf-security/{{ versions.security }}
+  idp: http://dist.ceda.ac.uk/esgf_local/assets/esgf-idp/{{ versions.idp }}
 
 
 mirror_host: aims1.llnl.gov
