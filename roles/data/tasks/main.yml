@@ -5,6 +5,7 @@
 
 - name: Import postgres tasks
   import_tasks: postgres.yml
+  when: need_local_postgres|default(true)
 
 - name: Import thredds tasks
   import_tasks: thredds.yml

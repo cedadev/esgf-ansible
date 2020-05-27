@@ -19,12 +19,17 @@
       - nss
       - curl
       - libcurl
+      - "{{ pkgs.psgycopg2 }}"
+      - postgresql-devel
     state: latest
+
+- name: Import postgres tasks
+  import_tasks: postgres.yml
+  when: need_local_postgres|default(true)
 
 - name: Import base tasks
   include_tasks: "{{ base_task }}.yml"
   loop:
-    - postgres
     - properties
     - config
   loop_control:

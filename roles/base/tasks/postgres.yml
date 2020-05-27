@@ -1,11 +1,15 @@
 
 # Install the postgres server and devel files
 
-- name: Ensure psycopg2 is installed and pg_config is available
-  package:
-    name:
-      - "{{ pkgs.psgycopg2 }}"
-      - postgresql-devel
+## this now handled by "Install basic utilities" (hence not dependent on
+## use_local_postgres) because it is needed in schema_migrate even where
+## local postgres server is not required
+
+#- name: Ensure psycopg2 is installed and pg_config is available
+#  package:
+#    name:
+#      - "{{ pkgs.psgycopg2 }}"
+#      - postgresql-devel
 
 - name: Install tier 1 repo
   yum:
