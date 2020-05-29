@@ -63,7 +63,7 @@ pkgs:
   apache: httpd
   postgres_server: postgresql96-server
   postgres_devel: postgresql96-devel
-  psgycopg2: python-psycopg2
+  psycopg2: python-psycopg2
 
 conda:
   prefix: /usr/local/conda

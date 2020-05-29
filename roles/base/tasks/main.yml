@@ -19,7 +19,7 @@
       - nss
       - curl
       - libcurl
-      - "{{ pkgs.psgycopg2 }}"
+      - "{{ pkgs.psycopg2 }}"
       - postgresql-devel
     state: latest
 

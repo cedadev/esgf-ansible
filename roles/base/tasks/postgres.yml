@@ -8,7 +8,7 @@
 #- name: Ensure psycopg2 is installed and pg_config is available
 #  package:
 #    name:
-#      - "{{ pkgs.psgycopg2 }}"
+#      - "{{ pkgs.psycopg2 }}"
 #      - postgresql-devel
 
 - name: Install tier 1 repo
