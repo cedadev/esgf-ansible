@@ -1,6 +1,6 @@
 
 - name: Easy Install schema migration script {{ egg.script }}
-  shell: "{{ conda.actv }} {{ schema_migrate.env }} && easy_install /tmp/{{ egg.name }}"
+  shell: "{{ conda.actv }} {{ schema_migrate.env }} && conda install -c conda-forge -y 'psycopg2<2.7' sqlparse six pbr decorator Tempita && easy_install /tmp/{{ egg.name }}"
   args:
     creates: "{{ conda.envs }}/{{ schema_migrate.env }}/{{ conda.mods }}/{{ egg.name }}"
 
