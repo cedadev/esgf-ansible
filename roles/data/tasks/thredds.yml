@@ -20,10 +20,10 @@
     src: thredds/threddsConfig.xml.j2
     dest: "{{ thredds.content }}/threddsConfig.xml"
 
-- name: Install catalog.xml-esgcet
+- name: Install catalog.xml
   copy:
     src: thredds/catalog.xml
-    dest: "{{ thredds.content }}/catalog.xml-esgcet"
+    dest: "{{ thredds.content }}/catalog.xml"
 
 - name: Install thredds web.xml
   template:
