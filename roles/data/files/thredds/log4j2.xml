@@ -71,7 +71,9 @@
       <appender-ref ref="serverStartupAppender"/>
     </logger>
 
-    <logger name="thredds.core.ConfigCatalogInitialization" level="debug" additivity="false">
+    <!-- level set to warn at CEDA, because frequent thredds reinit during publication was producing a large log file
+         when many catalogs are in use  -->
+    <logger name="thredds.core.ConfigCatalogInitialization" level="warn" additivity="false">
       <appender-ref ref="catalogInit"/>
     </logger>
 
